@@ -1,6 +1,15 @@
 
 # Rapport
 
+Det första som gjordes var att byta namn på appicationen, denna ändring gjordes vid `res/values/strings.xml`
+
+```
+<resources>
+    <string name="JPWebViewApp">WebViewApp</string>              //här byts namnet ut från app_name
+    <string name="action_external_web">External Web Page</string>
+    <string name="action_internal_web">Internal Web Page</string>
+</resources>
+```
 **Skriv din rapport här!**
 
 _Du kan ta bort all text som finns sedan tidigare_.
