@@ -29,6 +29,7 @@ android:layout_height="match_parent"
 />
 ```
 En private member variable av`WebView` skapades sedan och instansierades i metoden `onCreate()`
+där den hittades med hjälp av 'findViewById'
 ```
 public class MainActivity extends AppCompatActivity {
     private WebView myWebView;
