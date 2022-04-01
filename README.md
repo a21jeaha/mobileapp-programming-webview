@@ -16,10 +16,10 @@ För att ge applikationen internet access så har följande rad kod skrivits in 
 ```
  <uses-permission android:name="android.permission.INTERNET" />
 ```
-skapade en ny String name resource, och använde sedan denna i skapandet av webView elementet i filen `content_main.xml`
+Skapade en ny String name resource som sedan användes som namn till webView elementet i filen `content_main.xml`
 
 ```
-<string name="ID">my_webview</string>
+<string name="id">my_webview</string>
 ```
 ```
 <WebView
@@ -27,6 +27,27 @@ android:id="@+id/webview"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 />
+```
+En private member variable av`WebView` skapades sedan och instansierades i metoden `onCreate()`
+```
+public class MainActivity extends AppCompatActivity {
+    private WebView myWebView;
+
+    public MainActivity(){
+        myWebView = new WebView(this);
+    }
+}
+```
+
+```
+ @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        myWebView = (WebView) findViewById(R.id.webview);  /// här aktiverar vi elementet
+}
 ```
 
 
