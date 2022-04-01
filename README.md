@@ -1,15 +1,24 @@
 
 # Rapport
 
-Det första som gjordes var att byta namn på appicationen, denna ändring gjordes vid `res/values/strings.xml`
+Det första som gjordes var att byta namn på applikationen, denna ändring gjordes vid `res/values/strings.xml` där värdet i variabeln ändrades enligt nedan.
 
 ```
 <resources>
-    <string name="JPWebViewApp">WebViewApp</string>              //här byts namnet ut från app_name
+    <string name="WebViewApp">JPWebViewApp</string>              //här byts namnet ut från WebViewApp, till JPWebViewApp
     <string name="action_external_web">External Web Page</string>
     <string name="action_internal_web">Internal Web Page</string>
 </resources>
 ```
+
+För att ge applikationen internet access så har följande rad kod skrivits in i filen `AndroidManifest.xml` 
+
+```
+ <uses-permission android:name="android.permission.INTERNET" />
+```
+
+
+
 **Skriv din rapport här!**
 
 _Du kan ta bort all text som finns sedan tidigare_.
