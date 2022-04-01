@@ -16,9 +16,21 @@ För att ge applikationen internet access så har följande rad kod skrivits in 
 ```
  <uses-permission android:name="android.permission.INTERNET" />
 ```
+skapade en ny String name resource, och använde sedan denna i skapandet av webView elementet i filen `content_main.xml`
+
+```
+<string name="ID">my_webview</string>
+```
+```
+<WebView
+android:id="@+id/webview"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+/>
+```
 
 
-
+Och skrev sedan in 
 **Skriv din rapport här!**
 
 _Du kan ta bort all text som finns sedan tidigare_.
