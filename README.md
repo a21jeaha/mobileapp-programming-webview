@@ -16,7 +16,7 @@ För att ge applikationen internet access så har följande rad kod skrivits in 
 ```
  <uses-permission android:name="android.permission.INTERNET" />
 ```
-Skapade en ny String name resource som sedan användes som namn till webView elementet i filen `content_main.xml`
+Skapade en ny String name resource som sedan användes som "id" till webView elementet i filen `content_main.xml`
 
 ```
 <string name="id">my_webview</string>
@@ -28,7 +28,7 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 />
 ```
-En private member variable av`WebView` skapades sedan och instansierades i metoden `onCreate()`
+I filen 'MainActivity.java' skapades en private member variable av`WebView` och instansierades i metoden `onCreate()`,
 där den hittades med hjälp av 'findViewById'
 ```
 public class MainActivity extends AppCompatActivity {
@@ -50,6 +50,17 @@ public class MainActivity extends AppCompatActivity {
         myWebView = (WebView) findViewById(R.id.webview);  /// här aktiverar vi elementet
 }
 ```
+fortsatt i `onCreate()` skriver vi in dessa rader kod, för att först associera webSettings med vår instance av WebView
+sedan aktivera javascript.
+
+```
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+```
+
+För att kunna utföra nästa steg måste först en assets map skapas som sedan kommer innehålla en map med en html fil. 
+
+![](assetFolderCreated.jpg)
 
 
 Och skrev sedan in 
@@ -85,7 +96,7 @@ function errorCallback(error) {
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+
 
 Läs gärna:
 

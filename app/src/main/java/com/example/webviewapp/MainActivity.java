@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         myWebView = (WebView) findViewById(R.id.webview);
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
 
 
 
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
           browse the web inside our app.
         -- Commit and push to your github fork
         * Enable Javascript execution in your WebViewClient
+        *
         * Enter the url to load in our WebView
         -- Commit and push to your github fork
         * Move the code that loads a URL into your WebView into the two methods
