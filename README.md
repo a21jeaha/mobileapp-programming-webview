@@ -28,8 +28,8 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 />
 ```
-I filen 'MainActivity.java' skapades en private member variable av`WebView` och instansierades i metoden `onCreate()`,
-där den hittades med hjälp av 'findViewById'
+I filen `MainActivity.java` skapades en private member variable av`WebView` och instansierades i metoden `onCreate()`,
+där den hittades med hjälp av `findViewById`
 ```
 public class MainActivity extends AppCompatActivity {
     private WebView myWebView;
@@ -58,12 +58,12 @@ sedan aktivera javascript.
         webSettings.setJavaScriptEnabled(true);
 ```
 
-För att kunna utföra nästa steg måste först en assets map skapas som sedan kommer innehålla en map med en html fil. 
+För att utföra nästa steg (sätta till en html sida som asset) måste först en assets map skapas innehållande en map (som döps till webb_content) där vi sedan skapar html-filen. 
 
 ![](assetFolderCreated.jpg)
 
 
-Och skrev sedan in 
+
 **Skriv din rapport här!**
 
 _Du kan ta bort all text som finns sedan tidigare_.

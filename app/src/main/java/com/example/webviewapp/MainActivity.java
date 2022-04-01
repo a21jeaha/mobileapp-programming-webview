@@ -19,11 +19,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void showExternalWebPage(){
-        // TODO: Add your code for showing external web page here
+        myWebView.loadUrl("https://www.youtube.com/watch?v=d8zLGT5upZs&list=PLAxZA8hcpPLLjcktHtsZiACBvfAhUp6AF&index=25&ab_channel=LenaSYS");
     }
 
     public void showInternalWebPage(){
-        // TODO: Add your code for showing internal web page here
+      myWebView.loadUrl("/");
     }
 
     @Override
