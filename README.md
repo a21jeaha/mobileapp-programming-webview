@@ -51,19 +51,57 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 fortsatt i `onCreate()` skriver vi in dessa rader kod, för att först associera webSettings med vår instance av WebView
-sedan aktivera javascript.
+sedan aktivera javascript genom att sätta värder till __true__.
 
 ```
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 ```
 
-För att utföra nästa steg (sätta till en html sida som asset) måste först en assets map skapas innehållande en map (som döps till webb_content) där vi sedan skapar html-filen. 
+För att utföra nästa steg (sätta till en html sida som asset) måste först en assets map skapas innehållande en map (som döps till webb_content) där vi sedan skapar html-filen. Denna fil fylls sedan med lite information så det finns något att se när applikationen läses. 
 
 ![](assetFolderCreated.jpg)
 
+För att kunna ladda upp url-länkar behöver man använda sig av `myWebView.loadUrl("lämplig url")`, vid tester fungera den externa url-länken utan problem 
+meddan den interna enbart fungera om hela sökvägen skrivs in, istället för den relativa sökvägen som rekommenderas i literaturen.
+Vid försök vissas ett error meddelande som lyder __ERR_CLEARTEXT_NOT_PERMITTED__ när filen ska läsas in.
+```
+    myWebView.loadUrl("https://www.youtube.com/watch?v=d8zLGT5upZs&list=PLAxZA8hcpPLLjcktHtsZiACBvfAhUp6AF&index=25&ab_channel=LenaSYS");
+    myWebView.loadUrl("file:///android_asset/webbcontent/about.html");
+```
+Efter testning placeras raderna med kod i respektive metod (metoderna fanns redan för skrivna, med instruktioner). 
 
+```
+   public void showExternalWebPage(){
+        myWebView.loadUrl("https://www.youtube.com/watch?v=d8zLGT5upZs&list=PLAxZA8hcpPLLjcktHtsZiACBvfAhUp6AF&index=25&ab_channel=LenaSYS");
+    }
 
+    public void showInternalWebPage(){
+        myWebView.loadUrl("file:///android_asset/webbcontent/about.html");
+    }
+```
+Det sista kravet 
+```
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+
+int id = item.getItemId();
+
+        if (id == R.id.action_external_web) {
+            Log.d("==>","Will display external web page");
+            showExternalWebPage();
+            return true;
+        }
+
+        if (id == R.id.action_internal_web) {
+            Log.d("==>","Will display internal web page");
+            showInternalWebPage();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+```
 **Skriv din rapport här!**
 
 _Du kan ta bort all text som finns sedan tidigare_.
