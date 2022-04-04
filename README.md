@@ -16,30 +16,22 @@ För att ge applikationen internet access så har följande rad kod skrivits in 
 ```
  <uses-permission android:name="android.permission.INTERNET" />
 ```
-Skapade en ny String name resource som sedan användes som "id" till webView elementet i filen `content_main.xml`
+Ett id för webView elementet i filen `content_main.xml` 
 
 ```
-<string name="id">my_webview</string>
-```
-```
-<WebView
-android:id="@+id/webview"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-/>
+  <WebView
+       android:id="@+id/webview"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       />
 ```
 I filen `MainActivity.java` skapades en private member variable av`WebView` och instansierades i metoden `onCreate()`,
 där den hittades med hjälp av `findViewById`
 ```
 public class MainActivity extends AppCompatActivity {
     private WebView myWebView;
-
-    public MainActivity(){
-        myWebView = new WebView(this);
-    }
 }
 ```
-
 ```
  @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
         myWebView = (WebView) findViewById(R.id.webview);  /// här aktiverar vi elementet
 }
 ```
-fortsatt i `onCreate()` skriver vi in dessa rader kod, för att först associera webSettings med vår instance av WebView
-sedan aktivera javascript genom att sätta värder till __true__.
+fortsatt i `onCreate()` skriver vi in dessa rader kod, för att först associera webSettings med instansen av WebView
+sedan aktiveras javascript genom att sätta värder till __true__.
 
 ```
         WebSettings webSettings = myWebView.getSettings();
@@ -69,7 +61,7 @@ Vid försök vissas ett error meddelande som lyder __ERR_CLEARTEXT_NOT_PERMITTED
     myWebView.loadUrl("https://www.youtube.com/watch?v=d8zLGT5upZs&list=PLAxZA8hcpPLLjcktHtsZiACBvfAhUp6AF&index=25&ab_channel=LenaSYS");
     myWebView.loadUrl("file:///android_asset/webbcontent/about.html");
 ```
-Efter testning placeras raderna med kod i respektive metod (metoderna fanns redan för skrivna, med instruktioner). 
+Efter testning placeras raderna med kod i respektive metod (metoderna fanns redan förskrivna, med instruktioner). 
 
 ```
    public void showExternalWebPage(){

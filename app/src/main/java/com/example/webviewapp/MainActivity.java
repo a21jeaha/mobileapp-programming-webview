@@ -13,12 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
     private WebView myWebView;
 
-    public MainActivity(){
-
-    }
-
-
-    public void showExternalWebPage(){
+   public void showExternalWebPage(){
         myWebView.loadUrl("https://www.youtube.com/watch?v=d8zLGT5upZs&list=PLAxZA8hcpPLLjcktHtsZiACBvfAhUp6AF&index=25&ab_channel=LenaSYS");
     }
 
