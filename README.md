@@ -63,7 +63,7 @@ Vid försök vissas ett error meddelande som lyder __ERR_CLEARTEXT_NOT_PERMITTED
     myWebView.loadUrl("file:///android_asset/webbcontent/about.html");
 ```
 Vid testning av koden ovan erhölls ett resultat där innehållet i Webviewn hamnar under meny raden och en bit utanför fönstret,
-Den uppdaterade WebView koden ser nu ut såhär, `android:layout_width=""`  har satts som `match_parent` vilket gör att innehållet i Webview fönstret anpassas till det primära applikations fönstret, medan `android:layout_height=""` fick en fast storlek på 670dp.  
+Den uppdaterade WebView koden ser nu ut såhär, `android:layout_width=""`  har satts som `match_parent`, medan `android:layout_height=""` fick en fast storlek på 670dp.  
 Resterande inställningar gjordes via Designvyn där constraints vid applikationens parent fönster på alla kanter bortsätt från toppen.
 ```
 <WebView
@@ -77,8 +77,9 @@ Resterande inställningar gjordes via Designvyn där constraints vid applikation
        app:layout_constraintHorizontal_bias="0.444"
        app:layout_constraintStart_toStartOf="parent" />
 ```
-Skillnaden 
-placeras raderna med kod i respektive metod (metoderna fanns redan förskrivna, med instruktioner).
+Skillnaden är att innehållet i Webview fönstret anpassas till det primära applikations fönstret, däremot hittades ingen önskvärd lösning för att begränsa WebViewn så att den inte hamnar under menyraden.   
+
+Efter det placerades url raderna med kod i deras respektive metod (metoderna fanns redan förskrivna, med instruktioner).
 ```
    public void showExternalWebPage(){
         myWebView.loadUrl("https://www.youtube.com/watch?v=d8zLGT5upZs&list=PLAxZA8hcpPLLjcktHtsZiACBvfAhUp6AF&index=25&ab_channel=LenaSYS");
