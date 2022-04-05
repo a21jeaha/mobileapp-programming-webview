@@ -25,6 +25,7 @@ Ett id för webView elementet i filen `content_main.xml`
        android:layout_height="wrap_content"
        />
 ```
+
 I filen `MainActivity.java` skapades en private member variable av`WebView` och instansierades i metoden `onCreate()`,
 där den hittades med hjälp av `findViewById`
 ```
@@ -61,8 +62,23 @@ Vid försök vissas ett error meddelande som lyder __ERR_CLEARTEXT_NOT_PERMITTED
     myWebView.loadUrl("https://www.youtube.com/watch?v=d8zLGT5upZs&list=PLAxZA8hcpPLLjcktHtsZiACBvfAhUp6AF&index=25&ab_channel=LenaSYS");
     myWebView.loadUrl("file:///android_asset/webbcontent/about.html");
 ```
-Efter testning placeras raderna med kod i respektive metod (metoderna fanns redan förskrivna, med instruktioner). 
+Vid testning av koden ovan erhölls ett resultat där innehållet i Webviewn hamnar under meny raden och en bit utanför fönstret,
+Den uppdaterade WebView koden ser nu ut såhär, `android:layout_width=""`  har satts som `match_parent` vilket gör att innehållet i Webview fönstret anpassas till det primära applikations fönstret, medan `android:layout_height=""` fick en fast storlek på 670dp.  
+Resterande inställningar gjordes via Designvyn där constraints vid applikationens parent fönster på alla kanter bortsätt från toppen.
+```
+<WebView
+       android:id="@+id/webview"
+       android:layout_width="match_parent"
+       android:layout_height="669dp"
 
+       android:layout_marginBottom="4dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.444"
+       app:layout_constraintStart_toStartOf="parent" />
+```
+Skillnaden 
+placeras raderna med kod i respektive metod (metoderna fanns redan förskrivna, med instruktioner).
 ```
    public void showExternalWebPage(){
         myWebView.loadUrl("https://www.youtube.com/watch?v=d8zLGT5upZs&list=PLAxZA8hcpPLLjcktHtsZiACBvfAhUp6AF&index=25&ab_channel=LenaSYS");

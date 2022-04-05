@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private WebView myWebView;
 
    public void showExternalWebPage(){
-        myWebView.loadUrl("https://www.youtube.com/watch?v=d8zLGT5upZs&list=PLAxZA8hcpPLLjcktHtsZiACBvfAhUp6AF&index=25&ab_channel=LenaSYS");
+        myWebView.loadUrl("https://dugga.iit.his.se/DuggaSys/showdoc.php?exampleid=external-web-resource.md&courseid=1&coursevers=927632&fname=external-web-resource.md");
     }
 
     public void showInternalWebPage(){
