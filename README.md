@@ -69,7 +69,7 @@ Resterande inställningar gjordes via Designvyn där constraints vid applikation
 <WebView
        android:id="@+id/webview"
        android:layout_width="match_parent"
-       android:layout_height="669dp"
+       android:layout_height="670dp"
 
        android:layout_marginBottom="4dp"
        app:layout_constraintBottom_toBottomOf="parent"
