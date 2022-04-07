@@ -5,7 +5,7 @@ Det första som gjordes var att byta namn på applikationen, denna ändring gjor
 
 ```
 <resources>
-    <string name="WebViewApp">JPWebViewApp</string>              //här byts namnet ut från WebViewApp, till JPWebViewApp
+    <string name="WebViewApp">JPWebViewApp</string>              //här byts namnet från WebViewApp, till JPWebViewApp
     <string name="action_external_web">External Web Page</string>
     <string name="action_internal_web">Internal Web Page</string>
 </resources>
@@ -24,7 +24,7 @@ Ett id för webView elementet i filen `content_main.xml` angav
 ```
 
 I filen `MainActivity.java` skapades en private member variable av `WebView` och instansierades i metoden `onCreate()`,
-där den hittades med hjälp av `findViewById`
+där den hittades med hjälp av `findViewById` via dess id som skapades innan.
 ```
 public class MainActivity extends AppCompatActivity {
     private WebView myWebView;
@@ -48,17 +48,17 @@ sedan aktiveras javascript genom att sätta värdet till __true__.
         webSettings.setJavaScriptEnabled(true);
 ```
 
-För att utföra nästa steg (sätta till en html sida som asset) måste först en assets map skapas innehållande en map (som döps till webb_content) där vi sedan skapar html-filen. Denna fil fylls sedan med lite information så det finns något att se när applikationen läses. 
+För att utföra nästa steg (sätta till en html sida som asset) måste först en assets map skapas innehållande en map (som döps till webb_content) där vi sedan skapar html-filen. Denna fil fylls sedan med lite information så det finns något att se när sidan öppnas. 
 
 ![](assetFolderCreated.jpg)
 
-För att kunna ladda upp url-länkar behöver man använda sig av `myWebView.loadUrl("lämplig url")`, vid tester fungera den externa url-länken utan problem
-medan den interna enbart fungera om hela sökvägen skrivs in, istället för den relativa sökvägen som rekommenderas i litteraturen.
-Vid försök visas ett error meddelande som lyder __ERR_CLEARTEXT_NOT_PERMITTED__ när filen ska läsas in.
+För att kunna ladda upp url-länkar behöver man använda sig av `myWebView.loadUrl("lämplig url")`.
+
 ```
     myWebView.loadUrl("https://www.youtube.com/watch?v=d8zLGT5upZs&list=PLAxZA8hcpPLLjcktHtsZiACBvfAhUp6AF&index=25&ab_channel=LenaSYS");
     myWebView.loadUrl("file:///android_asset/webbcontent/about.html");
 ```
+
 Vid testning av koden ovan erhölls ett resultat där innehållet i Webviewn hamnar under menyraden och en bit utanför fönstret,
 Den uppdaterade WebView koden ser nu ut såhär, `android:layout_width=""` och `android:layout_height=""` har satts som `match_parent` medan `android:layout_marginTop=""` satts till 56dp.
 Resterande inställningar gjordes via Designvyn där constraints vid applikationens parent fönster på alla kanter bortsett från toppen.
